@@ -42,7 +42,7 @@ The latest version is v2.0.0 and can be downloaded on the [release page](https:/
 ## Disabled devices
 - HDMI, HDMI port is connected with disabled NVIDIA DGPU
 
-## About how to use alc_fix
+## About how to use ALCPlugFix
 - Execute "install双击自动安装.command"
 - This command is used to solve audio problem, if system can not shift ouput automatically as 3.5mm headphone has been plugged in, or the sound effect is rumble
 
