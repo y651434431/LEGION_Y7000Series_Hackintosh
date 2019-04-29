@@ -45,8 +45,8 @@
 ## 不能正常使用的功能
 - HDMI ，因为HDMI 端口连接到已禁用的Nvidia卡。
 
-## 关于 alc_fix 的使用
-- 进入alc_fix目录下，执行 “install双击自动安装.command” 即可
+## 关于 ALCPlugFix 的使用
+- 进入ALCPlugFix 目录下，执行 “install双击自动安装.command” 即可
 - 该程序主要是为了解决耳机插入时系统不能自动切换耳麦问题以及耳机杂音等问题
 
 ## 关于捐赠
