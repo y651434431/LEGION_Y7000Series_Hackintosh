@@ -422,11 +422,11 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
         Return (Ones != Match(Local0, MEQ, Arg0, MTR, 0, 0))
     }
 
- Scope (_SB.PCI0.I2C1)
+    Scope (_SB.PCI0.I2C1)
     {
         Method (SSCN, 0, NotSerialized)
         {
-            Return (PKG3 (SSH1, SSL1, SSD1))
+            Return (PKGX (SSH1, SSL1, SSD1))
         }
 
         Method (FMCN, 0, NotSerialized)
@@ -439,51 +439,20 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
             })
             Return (PKG) /* \_SB_.PCI0.I2C1.FMCN.PKG_ */
         }
-    }
-
-    Method (_SB.PCI0.I2C1.TPD0._CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
-    {
-        Name (SBFS, ResourceTemplate ()
+        
+        Method (PKGX, 3, Serialized)
         {
-            Interrupt (ResourceConsumer, Level, ActiveLow, ExclusiveAndWake, ,, )
+            Name (PKG, Package (0x03)
             {
-                0x000000FF,
-            }
-        })
-        If (LEqual (TPTY, One))
-        {
-            Store (0x15, BADR) /* External reference */
-            Store (One, HID2) /* External reference */
-        }
-
-        If (LEqual (TPTY, 0x02))
-        {
-            Store (0x2C, BADR) /* External reference */
-            Store (0x20, HID2) /* External reference */
-        }
-
-        If (LEqual (TPTY, 0x03))
-        {
-            Store (0x2A, BADR) /* External reference */
-            Store (0x20, HID2) /* External reference */
-        }
-
-        Return (ConcatenateResTemplate (SBFB, SBFS))
-    }
-
-    Method (PKG3, 3, Serialized)
-    {
-        Name (PKG, Package (0x03)
-        {
-            Zero, 
-            Zero, 
-            Zero
-        })
+                Zero, 
+                Zero, 
+                Zero
+            })
         Store (Arg0, Index (PKG, Zero))
         Store (Arg1, Index (PKG, One))
         Store (Arg2, Index (PKG, 0x02))
         Return (PKG) /* \PKG3.PKG_ */
+        }
     }
-
 }
 
