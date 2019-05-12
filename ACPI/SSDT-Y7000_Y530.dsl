@@ -35,12 +35,7 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
     Device(RMCF)
     {
         Name(_ADR, 0)   // do not remove
-        
-        // AUDL: Audio Layout
-        // The value here will be used to inject layout-id for HDEF and HDAU
-        // If set to Ones, no audio injection will be done.
-        Name(AUDL, 18)
-
+       
         // DWOU: Disable wake on USB
         // 1: Disable wake on USB
         // 0: Do not disable wake on USB
@@ -239,60 +234,6 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
                 "kUSBWakePowerSupply", 3200,
             })
         }
-    }
-    
-    // inject properties for audio
-    Method(_SB.PCI0.HDEF._DSM, 4)
-    {
-        If (CondRefOf(\RMCF.AUDL)) { If (Ones == \RMCF.AUDL) { Return(0) } }
-        If (!Arg2) { Return (Buffer() { 0x03 } ) }
-        Local0 = Package()
-        {
-            "layout-id", Buffer(4) { 2, 0, 0, 0 },
-            "hda-gfx", Buffer() { "onboard-1" },
-            "no-controller-patch", Buffer() { 1, 0, 0, 0 }, // disables automatic AppleALC patching
-            "PinConfigurations", Buffer() { },
-        }
-        If (CondRefOf(\RMCF.AUDL))
-        {
-            CreateDWordField(DerefOf(Local0[1]), 0, AUDL)
-            AUDL = \RMCF.AUDL
-        }
-        // the user can disable "hda-gfx" injection by defining \RMDA or setting RMCF.DAUD=0
-        // assumes that "hda-gfx" is always at index 2 (eg. "hda-gfx" follows ig-platform-id)
-        Local1 = 0
-        If (CondRefOf(\RMDA)) { Local1 = 1 }
-        If (CondRefOf(\RMCF.DAUD)) { If (0 == \RMCF.DAUD) { Local1 = 1 } }
-        If (Local1) { Local0[2] = "#hda-gfx"; }
-        Return(Local0)
-    }
-    
-    // inject properties for XHCI
-    Method(_SB.PCI0.XHC._DSM, 4)
-    {
-        If (!Arg2) { Return (Buffer() { 0x03 } ) }
-        Local0 = Package()
-        {
-            "RM,disable_FakePCIID", 0,
-            "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },
-            "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },
-            "AAPL,current-available", Buffer() { 0x34, 0x08, 0, 0 },
-            "AAPL,current-extra", Buffer() { 0x98, 0x08, 0, 0, },
-            "AAPL,current-extra-in-sleep", Buffer() { 0x40, 0x06, 0, 0, },
-            "AAPL,max-port-current-in-sleep", Buffer() { 0x34, 0x08, 0, 0 },
-        }
-        // force USB2 on XHC if EHCI is disabled
-        If (CondRefOf(\_SB.PCI0.RMD2) || CondRefOf(\_SB.PCI0.RMD3) || CondRefOf(\_SB.PCI0.RMD4)) { Local0[1] = 1 }
-        Return(Local0)
-    }
-    
-    Method(_SB.PR00._DSM, 4)
-    {
-        If (!Arg2) { Return (Buffer() { 0x03 } ) }
-        Return (Package()
-        {
-            "plugin-type", 1
-        })
     }
 
     // In DSDT, native GPRW is renamed to XPRW with Clover binpatch.
