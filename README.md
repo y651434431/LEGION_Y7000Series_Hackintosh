@@ -10,7 +10,7 @@
 
 ## 发布
 
-最后发布的版本是 v2.0.0，前往 [release page](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/releases) 下载即可。
+最后发布的版本是 v2.0.1，前往 [release page](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/releases) 下载即可。
 
 ## 你需要什么
 - Lenovo Legion Y7000系列笔记本
