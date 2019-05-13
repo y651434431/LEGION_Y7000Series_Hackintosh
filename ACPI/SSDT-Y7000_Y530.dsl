@@ -10,12 +10,7 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
     External(_SB.PCI0.PEGP.DGFX._ON, MethodObj)
     External(_SB.PCI0.PEGP.DGFX._OFF, MethodObj)
     External(_SB.PCI0.XHC.PMEE, FieldUnitObj)
-    External(_SB.PCI0.IGPU, DeviceObj)  
-    External(RMCF.IGPI, IntObj)
-    External(RMGO, PkgObj)
     External(XPRW, MethodObj)
-    External(RMCF.DAUD, IntObj)
-    External(RMCF.DWOU, IntObj)
     External(ZPTS, MethodObj)
     External(ZWAK, MethodObj)   
     External(RMCF.DPTS, IntObj)
@@ -24,13 +19,12 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
     External(RMCF.SSTF, IntObj)
     External(_SI._SST, MethodObj)
     External (_SB_.PCI0.I2C1, DeviceObj)
-    External (_SB_.PCI0.I2C1.TPD0.BADR, UnknownObj)
-    External (_SB_.PCI0.I2C1.TPD0.HID2, IntObj)
-    External (_SB_.PCI0.I2C1.TPD0.SBFB, IntObj)
-    External (SSD1, FieldUnitObj)
-    External (SSH1, FieldUnitObj)
-    External (SSL1, FieldUnitObj)
-    External (TPTY, FieldUnitObj)
+    External (FMD1, IntObj)
+    External (FMH1, IntObj)
+    External (FML1, IntObj)
+    External (SSD1, IntObj)
+    External (SSH1, IntObj)
+    External (SSL1, IntObj)
     
     Device(RMCF)
     {
@@ -365,22 +359,6 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
 
     Scope (_SB.PCI0.I2C1)
     {
-        Method (SSCN, 0, NotSerialized)
-        {
-            Return (PKGX (SSH1, SSL1, SSD1))
-        }
-
-        Method (FMCN, 0, NotSerialized)
-        {
-            Name (PKG, Package (0x03)
-            {
-                0x0101, 
-                0x012C, 
-                0x62
-            })
-            Return (PKG) /* \_SB_.PCI0.I2C1.FMCN.PKG_ */
-        }
-        
         Method (PKGX, 3, Serialized)
         {
             Name (PKG, Package (0x03)
@@ -394,6 +372,16 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
         Store (Arg2, Index (PKG, 0x02))
         Return (PKG) /* \PKG3.PKG_ */
         }
+        
+        Method (SSCN, 0, NotSerialized)
+        {
+            Return (PKGX (SSH1, SSL1, SSD1))
+        }
+
+        Method (FMCN, 0, NotSerialized)
+        {
+            Return (PKGX (FMH1, FML1, FMD1))
+        }        
     }
 }
 
