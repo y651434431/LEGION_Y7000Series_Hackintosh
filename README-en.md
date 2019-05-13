@@ -7,7 +7,7 @@ Our purpose is to allow Lenovo Y7000/Y530 laptop to run mac OS mojave as nativel
 Tips: Y7000/Y530 does not have whitelist upon WLAN hardware, you even do not need to modify your BIOS
 
 ## Releases
-The latest version is v2.0.0 and can be downloaded on the [release page](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/releases).
+The latest version is v2.0.1 and can be downloaded on the [release page](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/releases).
 
 ## What do you need
 - Lenovo Legion Y7000/Y530 Series Notebook
