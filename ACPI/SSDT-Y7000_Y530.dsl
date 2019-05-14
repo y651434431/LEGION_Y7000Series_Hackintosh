@@ -1,14 +1,12 @@
 
 DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
 {
-    External(_SB.PCI0.PEG0.PEGP._OFF, MethodObj)
     External(_SB.PCI0.LPCB, DeviceObj)
+    External(_SB.PCI0.IGPU, DeviceObj)
     External(_SB.PCI0.LPCB.EC, DeviceObj)
     External(_SB.PCI0.SATA, DeviceObj)
     External(_SB.PCI0.PEG0.PEGP._ON, MethodObj)
     External(_SB.PCI0.PEG0.PEGP._OFF, MethodObj)
-    External(_SB.PCI0.PEGP.DGFX._ON, MethodObj)
-    External(_SB.PCI0.PEGP.DGFX._OFF, MethodObj)
     External(_SB.PCI0.XHC.PMEE, FieldUnitObj)
     External(XPRW, MethodObj)
     External(ZPTS, MethodObj)
@@ -47,61 +45,28 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
     }
     
      // For backlight control
-    Device(_SB.PCI0.IGPU.PNLF)
-    {
-        Name(_ADR, Zero)
-        Name(_HID, EisaId("APP0002"))
-        Name(_CID, "backlight")
-        // _UID is set depending on PWMMax to match profiles in AppleBacklightFixup.kext Info.plist
-        // 14: Sandy/Ivy 0x710
-        // 15: Haswell/Broadwell 0xad9
-        // 16: Skylake/KabyLake 0x56c (and some Haswell, example 0xa2e0008)
-        // 17: custom LMAX=0x7a1
-        // 18: custom LMAX=0x1499
-        // 19: CoffeeLake 0xffff
-        // 99: Other (requires custom AppleBacklightInjector.kext/AppleBackightFixup.kext)
-        Name(_UID, 19)
-        Name(_STA, 0x0B)
+    Scope(_SB.PCI0.IGPU)
+	{
+        Device(PNLF)
+        {
+            Name(_ADR, Zero)
+            Name(_HID, EisaId("APP0002"))
+            Name(_CID, "backlight")
+            // _UID is set depending on PWMMax to match profiles in AppleBacklightFixup.kext Info.plist
+            // 14: Sandy/Ivy 0x710
+            // 15: Haswell/Broadwell 0xad9
+            // 16: Skylake/KabyLake 0x56c (and some Haswell, example 0xa2e0008)
+            // 17: custom LMAX=0x7a1
+            // 18: custom LMAX=0x1499
+            // 19: CoffeeLake 0xffff
+            // 99: Other (requires custom AppleBacklightInjector.kext/AppleBackightFixup.kext)
+            Name(_UID, 19)
+            Name(_STA, 0x0B)
+        }
     }
     
     Scope(_SB.PCI0.LPCB)
 	{
-          Device (PS2M)  // For ApplePS2SmartTouchPad.kext (by EMlyDinEsH)
-        {
-            Name (_HID, "MSFT0002")  // _HID: Hardware ID
-            Name (_CID, EisaId ("PNP0F13"))
-            Method(_STA, 0, NotSerialized)
-            {
-                Return (0x0F)
-            }
-            Name (_CRS, ResourceTemplate ()
-            {
-                IO (Decode16,
-                   0x0060,             // Range Minimum
-                   0x0060,             // Range Maximum
-                   0x00,               // Alignment
-                   0x01,               // Length
-                   )
-                IO (Decode16,
-                   0x0064,             // Range Minimum
-                   0x0064,             // Range Maximum
-                   0x00,               // Alignment
-                   0x01,               // Length
-                   )
-                IRQNoFlags ()
-                   {12}
-            })
-            Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
-            {
-                StartDependentFn (0x00, 0x00)
-                {
-                    IRQNoFlags ()
-                        {12}
-                }
-                EndDependentFn ()
-            })
-        }
-        
 		OperationRegion(RMP0, PCI_Config, 2, 2)
 		Field(RMP0, AnyAcc, NoLock, Preserve)
 		{
@@ -144,13 +109,11 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
         Method (_Q11) // Brightness down
         {
            Notify (PS2K, 0x0405) // For VoodooPS2Controller.kext (by RehabMan)
-           Notify (PS2K, 0x20) // For ApplePS2SmartTouchPad.kext (by EMlyDinEsH)
         }
         
         Method (_Q12) // Btightness up
         {
             Notify (PS2K, 0x0406) // For VoodooPS2Controller.kext (by RehabMan)
-            Notify (PS2K, 0x10) // For ApplePS2SmartTouchPad.kext (by EMlyDinEsH)
         }
     }
 
@@ -281,7 +244,6 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
             {
                 // enable discrete graphics
                 If (CondRefOf(\_SB.PCI0.PEG0.PEGP._ON)) { \_SB.PCI0.PEG0.PEGP._ON() }
-                If (CondRefOf(\_SB.PCI0.PEGP.DGFX._ON)) { \_SB.PCI0.PEGP.DGFX._ON() }
             }
         }
 
@@ -309,7 +271,6 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
             {
                 // disable discrete graphics
                 If (CondRefOf(\_SB.PCI0.PEG0.PEGP._OFF)) { \_SB.PCI0.PEG0.PEGP._OFF() }
-                If (CondRefOf(\_SB.PCI0.PEGP.DGFX._OFF)) { \_SB.PCI0.PEGP.DGFX._OFF() }
             }
         }
 
