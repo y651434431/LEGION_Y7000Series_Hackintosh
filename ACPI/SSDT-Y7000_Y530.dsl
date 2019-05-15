@@ -4,6 +4,7 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
     External(_SB.PCI0.LPCB, DeviceObj)
     External(_SB.PCI0.IGPU, DeviceObj)
     External(_SB.PCI0.LPCB.EC, DeviceObj)
+    External(_SB.PR00, DeviceObj)
     External(_SB.PCI0.SATA, DeviceObj)
     External(_SB.PCI0.PEG0.PEGP._ON, MethodObj)
     External(_SB.PCI0.PEG0.PEGP._OFF, MethodObj)
@@ -193,14 +194,17 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
         }
     }
     
-    Method(_SB.PR00._DSM, 4)
-    {
-        If (!Arg2) { Return (Buffer() { 0x03 } ) }
-        Return (Package()
-        {
-            "plugin-type", 1
-        })
-    }
+    Scope(_SB.PR00)
+	{
+	Method(_DSM, 4)
+		{
+			If (!Arg2) { Return (Buffer() { 0x03 } ) }
+			Return (Package()
+			{
+				"plugin-type", 1
+			})
+		}
+	}
 
     // In DSDT, native GPRW is renamed to XPRW with Clover binpatch.
     // As a result, calls to GPRW land here.
