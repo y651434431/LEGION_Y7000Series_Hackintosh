@@ -192,6 +192,15 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
             })
         }
     }
+    
+    Method(_SB.PR00._DSM, 4)
+    {
+        If (!Arg2) { Return (Buffer() { 0x03 } ) }
+        Return (Package()
+        {
+            "plugin-type", 1
+        })
+    }
 
     // In DSDT, native GPRW is renamed to XPRW with Clover binpatch.
     // As a result, calls to GPRW land here.
