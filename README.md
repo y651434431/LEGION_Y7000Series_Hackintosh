@@ -1,6 +1,6 @@
 ## 概述
 
-疑问解答可以提 [issues](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/issues) 给我或者加入我的QQ群：285680890（为防止伸手党以及无关人员，进群模式改成了收费模式收费1元）
+疑问解答可以提 [issues](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/issues) 给我或者加入我的QQ群：285680890
 
 [中文版](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/blob/master/README.md)|[English](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/blob/master/README-en.md)
 
@@ -10,7 +10,7 @@
 
 ## 发布
 
-最后发布的版本是 v2.0.1，前往 [release page](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/releases) 下载即可。
+最后发布的版本是 v2.0.2，前往 [release page](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/releases) 下载即可。
 
 ## 你需要什么
 - Lenovo Legion Y7000系列笔记本
@@ -51,7 +51,7 @@
 
 ## 关于捐赠
 
-如果您认可我的工作，请通过捐赠支持我后续的更新
+如果您认可我的工作，可以通过捐赠支持我后续的更新
 
 | 微信                                                       | 支付宝                                               |
 | ---------------------------------------------------------- | ---------------------------------------------------- |
