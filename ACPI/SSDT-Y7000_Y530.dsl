@@ -126,9 +126,11 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
             {
                 "Custom PS2 Map", Package()
                 {
-                    "e037=64",
-                    "1d=e038", 
-                    "38=e01d", 
+                    "e037=64", 
+                    "1d=38", 
+                    "38=1d", 
+                    "e038=e01d", 
+                    "e01d=e038", 
                 },
             },
         })
