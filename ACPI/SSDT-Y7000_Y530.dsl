@@ -45,6 +45,21 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
         }
     }
     
+    Device(_SB.ALS0)
+    {
+        Name(_HID, "ACPI0008")
+        Name(_CID, "smc-als")
+        Name(_ALI, 300)
+        Name(_ALR, Package()
+        {
+            //Package() { 70, 0 },
+            //Package() { 73, 10 },
+            //Package() { 85, 80 },
+            Package() { 100, 300 },
+            //Package() { 150, 1000 },
+        })
+    }
+    
      // For backlight control
     Scope(_SB.PCI0.IGPU)
 	{
@@ -328,7 +343,7 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
             //"Windows 2016",       // Windows 10, version 1607
             //"Windows 2017",       // Windows 10, version 1703
             //"Windows 2017.2",     // Windows 10, version 1709
-            //"Windows 2018",       // Windows 10, version 1803
+            "Windows 2018",       // Windows 10, version 1803
         }
         Return (Ones != Match(Local0, MEQ, Arg0, MTR, 0, 0))
     }
