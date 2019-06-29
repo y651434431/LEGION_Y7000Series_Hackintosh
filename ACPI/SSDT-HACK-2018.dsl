@@ -83,6 +83,42 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
     
     Scope(_SB.PCI0.LPCB)
 	{
+        Device (PS2M)  // For ApplePS2SmartTouchPad.kext (by EMlyDinEsH)
+        {
+            Name (_HID, "MSFT0002")  // _HID: Hardware ID
+            Name (_CID, EisaId ("PNP0F13"))
+            Method(_STA, 0, NotSerialized)
+            {
+                Return (0x0F)
+            }
+            Name (_CRS, ResourceTemplate ()
+            {
+                IO (Decode16,
+                   0x0060,             // Range Minimum
+                   0x0060,             // Range Maximum
+                   0x00,               // Alignment
+                   0x01,               // Length
+                   )
+                IO (Decode16,
+                   0x0064,             // Range Minimum
+                   0x0064,             // Range Maximum
+                   0x00,               // Alignment
+                   0x01,               // Length
+                   )
+                IRQNoFlags ()
+                   {12}
+            })
+            Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
+            {
+                StartDependentFn (0x00, 0x00)
+                {
+                    IRQNoFlags ()
+                        {12}
+                }
+                EndDependentFn ()
+            })
+        }
+        
 		OperationRegion(RMP0, PCI_Config, 2, 2)
 		Field(RMP0, AnyAcc, NoLock, Preserve)
 		{
@@ -125,11 +161,13 @@ DefinitionBlock("", "SSDT", 2, "legion", "_RMCF", 0)
         Method (_Q11) // Brightness down
         {
            Notify (PS2K, 0x0405) // For VoodooPS2Controller.kext (by RehabMan)
+           Notify (PS2K, 0x20) // For ApplePS2Controller_Release_v4.6.8.kext
         }
         
         Method (_Q12) // Btightness up
         {
             Notify (PS2K, 0x0406) // For VoodooPS2Controller.kext (by RehabMan)
+            Notify (PS2K, 0x10) // For ApplePS2Controller_Release_v4.6.8.kext
         }
     }
 
