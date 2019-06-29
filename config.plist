@@ -195,7 +195,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change _STA  to XSTA</string>
+					<string>change _STA  to XSTA,2019 y7000 and y540</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -214,7 +214,7 @@
 			</array>
 		</dict>
 		<key>FixHeaders</key>
-		<true/>
+		<false/>
 		<key>HaltEnabler</key>
 		<false/>
 		<key>SSDT</key>
@@ -235,11 +235,11 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0</string>
+		<string>dart=0 -v</string>
 		<key>CustomLogo</key>
 		<string>Theme</string>
 		<key>DefaultVolume</key>
-		<string>OSX</string>
+		<string>Mac</string>
 		<key>Legacy</key>
 		<string>LegacyBiosDefault</string>
 		<key>Log</key>
@@ -276,9 +276,7 @@
 			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
 			<dict>
 				<key>layout-id</key>
-				<data>
-				CwAAAA==
-				</data>
+				<integer>18</integer>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
@@ -335,8 +333,6 @@
 			<key>Tool</key>
 			<true/>
 		</dict>
-		<key>TextOnly</key>
-		<false/>
 		<key>Theme</key>
 		<string>Mojave</string>
 	</dict>
@@ -373,34 +369,34 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>Disable panic kext logging on 10.14 Release kernel (c) vit9696</string>
+				<string>Disable panic kext log on 10.13+10.14.4+6,10.15</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
-				igKEwHRC
+				AIoChMB0Rw==
 				</data>
 				<key>MatchOS</key>
-				<string>10.14.x</string>
+				<string>10.13.x,10.14.4,10.14.5,10.14.6,10.15.x</string>
 				<key>Replace</key>
 				<data>
-				igKEwOtC
+				AIoChMDrRw==
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Disable panic kext logging on 10.13 Release kernel</string>
+				<string>Disable panic kext log on 10.14.1+3</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
-				igKEwHRE
+				AIoChMB0TA==
 				</data>
 				<key>MatchOS</key>
-				<string>10.13.x</string>
+				<string>10.14,10.14.1,10.14.2,10.14.3</string>
 				<key>Replace</key>
 				<data>
-				igKEwOtE
+				AIoChMDrTA==
 				</data>
 			</dict>
 		</array>
@@ -453,54 +449,12 @@
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
-		<key>BiosReleaseDate</key>
-		<string>09/28/2018</string>
-		<key>BiosVendor</key>
-		<string>Apple Inc.</string>
-		<key>BiosVersion</key>
-		<string>MBP151.88Z.F000.B00.1809280842</string>
-		<key>Board-ID</key>
-		<string>Mac-937A206F2EE63C01</string>
-		<key>BoardManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>BoardSerialNumber</key>
-		<string>C02828501GUJP4FFB</string>
-		<key>BoardType</key>
-		<integer>10</integer>
-		<key>BoardVersion</key>
-		<string>1.0</string>
-		<key>ChassisAssetTag</key>
-		<string>MacBook-Aluminum</string>
-		<key>ChassisManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>ChassisType</key>
-		<string>0x09</string>
-		<key>EfiVersion</key>
-		<string>220.250.320.0.0</string>
-		<key>Family</key>
-		<string>MacBook Pro</string>
-		<key>FirmwareFeatures</key>
-		<string>0xFC0FE137</string>
-		<key>FirmwareFeaturesMask</key>
-		<string>0xFF1FFF3F</string>
-		<key>LocationInChassis</key>
-		<string>Part Component</string>
-		<key>Manufacturer</key>
-		<string>Apple Inc.</string>
 		<key>Mobile</key>
 		<true/>
-		<key>PlatformFeature</key>
-		<string>0x1A</string>
 		<key>ProductName</key>
 		<string>MacBookPro15,1</string>
 		<key>ProductName-Comment</key>
 		<string>Using Haswell MacBookAir6,2 until Clover has support for KabyLake identifiers</string>
-		<key>SerialNumber</key>
-		<string>C02X22YJKGYG</string>
-		<key>SmUUID</key>
-		<string>148AA986-80A1-4FB3-A6CA-0537274BF824</string>
-		<key>Version</key>
-		<string>1.0</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
