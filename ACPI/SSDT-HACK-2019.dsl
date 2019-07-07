@@ -6,7 +6,6 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
     #include "./hotpatch/SSDT-ALS0.dsl"
     #include "./hotpatch/SSDT-DDGPU.dsl"
     #include "./hotpatch/SSDT-PNLFCFL.dsl"
-    #include "./hotpatch/SSDT-PS2M.dsl"
     #include "./hotpatch/SSDT-LPC.dsl"
     #include "./hotpatch/SSDT-BL.dsl"    
     #include "./hotpatch/SSDT-SATA.dsl" 
@@ -17,5 +16,6 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
     #include "./hotpatch/SSDT-XOSI.dsl"
     #include "./hotpatch/SSDT-I2C.dsl"
     //#include "./hotpatch/SSDT-DNVMe.dsl"
+
 }
 //EOF
