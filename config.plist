@@ -195,6 +195,24 @@
 					WldBSwk=
 					</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change _STA  to XSTA</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					X1NUQQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFNUQQ==
+					</data>
+					<key>TgtBridge</key>
+					<data>
+					UlRDXw==
+					</data>
+				</dict>
 			</array>
 		</dict>
 		<key>FixHeaders</key>
