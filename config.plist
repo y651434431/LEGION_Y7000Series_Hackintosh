@@ -10,6 +10,8 @@
 		<dict>
 			<key>Fixes</key>
 			<dict>
+				<key>FixHDA</key>
+				<false/>
 				<key>FixHPET</key>
 				<true/>
 				<key>FixIPIC</key>
@@ -193,24 +195,6 @@
 					WldBSwk=
 					</data>
 				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change _STA  to XSTA,2019 y7000 and y540</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					X1NUQQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					WFNUQQ==
-					</data>
-					<key>TgtBridge</key>
-					<data>
-					UlRDXw==
-					</data>
-				</dict>
 			</array>
 		</dict>
 		<key>FixHeaders</key>
@@ -235,11 +219,11 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 -v</string>
+		<string>dart=0 alcid=18</string>
 		<key>CustomLogo</key>
 		<string>Theme</string>
 		<key>DefaultVolume</key>
-		<string>Mac</string>
+		<string>OSX</string>
 		<key>Legacy</key>
 		<string>LegacyBiosDefault</string>
 		<key>Log</key>
@@ -268,8 +252,8 @@
 	<dict>
 		<key>Audio</key>
 		<dict>
-			<key>Inject</key>
-			<string>No</string>
+			<key>ResetHDA</key>
+			<false/>
 		</dict>
 		<key>Properties</key>
 		<dict>
@@ -333,6 +317,8 @@
 			<key>Tool</key>
 			<true/>
 		</dict>
+		<key>TextOnly</key>
+		<false/>
 		<key>Theme</key>
 		<string>Mojave</string>
 	</dict>
