@@ -16,6 +16,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
     #include "./hotpatch/SSDT-PTSWAK.dsl"
     #include "./hotpatch/SSDT-XOSI.dsl"
     #include "./hotpatch/SSDT-I2C.dsl"
+    #include "./hotpatch/SSDT-HDEF.dsl"
     //#include "./hotpatch/SSDT-DNVMe.dsl"
 }
 //EOF
