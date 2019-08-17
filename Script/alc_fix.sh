@@ -37,7 +37,4 @@ sudo chown root:wheel /Library/LaunchAgents/good.win.ALCPlugFix.plist
 echo "Load ALCPlugFix..."
 sudo launchctl load /Library/LaunchAgents/good.win.ALCPlugFix.plist
 
-echo "Clear Cache..."
-sudo kextcache -i /
-
 echo "Done!"
