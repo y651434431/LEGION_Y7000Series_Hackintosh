@@ -2,15 +2,15 @@
 
 [中文版](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/blob/master/README.md)|[English](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/blob/master/README-en.md)
 
-Our purpose is to allow Lenovo Y7000/Y530 laptop to run mac OS mojave as natively as possible
+Our purpose is to allow Lenovo Y7000/Y530/Y540 laptop to run mac OS mojave as natively as possible
 
-Tips: Y7000/Y530 does not have whitelist upon WLAN hardware, you even do not need to modify your BIOS
+Tips: Y7000/Y530/Y540 does not have whitelist upon WLAN hardware, you even do not need to modify your BIOS
 
 ## Releases
-The latest version is v2.0.1 and can be downloaded on the [release page](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/releases).
+The latest version is v2.0.3 and can be downloaded on the [release page](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/releases).
 
 ## What do you need
-- Lenovo Legion Y7000/Y530 Series Notebook
+- Lenovo Legion Y7000/Y530/Y540 Series Notebook
 - Mojave disk image is prepared, nomally .dmg file, 10.14.2 version has been tested
 - USB storage (at least 8 Gigabyte)
 - Broadcom BCM94352z WLAN PCIE card (AKA: DW1560)
