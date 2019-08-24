@@ -5,9 +5,9 @@
 
 echo "This script required to run as root"
 
-sudo curl -o "/tmp/ALCPlugFix" "https://raw.githubusercontent.com/xiaoMGithub/Lenovo_Y7000-Y530_Hackintosh/master/ALCPlugFix/ALCPlugFix"
-sudo curl -o "/tmp/hda-verb" "https://raw.githubusercontent.com/xiaoMGithub/Lenovo_Y7000-Y530_Hackintosh/master/ALCPlugFix/hda-verb"
-sudo curl -o "/tmp/good.win.ALCPlugFix.plist" "https://raw.githubusercontent.com/xiaoMGithub/Lenovo_Y7000-Y530_Hackintosh/master/ALCPlugFix/good.win.ALCPlugFix.plist"
+sudo curl -o "/tmp/ALCPlugFix" "https://raw.githubusercontent.com/xiaoMGithub/LEGION_Y7000Series_Hackintosh_Clover/master/ALCPlugFix/ALCPlugFix"
+sudo curl -o "/tmp/hda-verb" "https://raw.githubusercontent.com/xiaoMGithub/LEGION_Y7000Series_Hackintosh_Clover/master/ALCPlugFix/hda-verb"
+sudo curl -o "/tmp/good.win.ALCPlugFix.plist" "https://raw.githubusercontent.com/LEGION_Y7000Series_Hackintosh_Clover/master/ALCPlugFix/good.win.ALCPlugFix.plist"
 
 echo "Downloading required file"
 

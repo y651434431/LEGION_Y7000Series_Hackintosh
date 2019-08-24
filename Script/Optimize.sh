@@ -9,7 +9,7 @@ sudo rm -rf /var/vm/sleepimage
 
 sudo mkdir /var/vm/sleepimage
 
-sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/xiaoMGithub/Lenovo_Y7000-Y530_Hackintosh/master/Script/alc_fix.sh)"
+sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/xiaoMGithub/LEGION_Y7000Series_Hackintosh_Clover/master/Script/alc_fix.sh)"
 
 sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/xiaoMGithub/LocalTime-Toggle/master/fix_time_osx.sh)"
 
