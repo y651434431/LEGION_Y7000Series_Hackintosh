@@ -15,8 +15,10 @@
  * Reference USB: https://applelife.ru/posts/550233
  * Reference EC: https://applelife.ru/posts/807985
  */
+#ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "APPLE ", "SsdtEC", 0x00001000)
 {
+#endif
     External (_SB_.PCI0.LPCB, DeviceObj)
 
     /*
@@ -66,4 +68,6 @@ DefinitionBlock ("", "SSDT", 2, "APPLE ", "SsdtEC", 0x00001000)
             }
         }
     }
+#ifndef NO_DEFINITIONBLOCK
 }
+#endif
