@@ -14,7 +14,7 @@
 
 ## 你需要什么
 - Lenovo Legion Y7000系列笔记本
-- 下载好的Mojave镜像，本人用的是Mojave 14.2 的镜像
+- 下载好的Mojave镜像，本人用的是Mojave 10.14.6 的镜像
 - 8GB U盘
 - 博通BCM94352z 无线网卡
 
@@ -45,16 +45,12 @@
 ## 不能正常使用的功能
 - HDMI ，因为HDMI 端口连接到已禁用的Nvidia卡。
 
-## 关于 ALCPlugFix 的使用
-- 进入ALCPlugFix 目录下，执行 “install双击自动安装.command” 即可
-- 该程序主要是为了解决耳机插入时系统不能自动切换耳麦问题以及耳机杂音等问题
-
 ## 关于捐赠
 
 如果您认可我的工作，可以通过捐赠支持我后续的更新
 
 | 微信                                                       | 支付宝                                               |
 | ---------------------------------------------------------- | ---------------------------------------------------- |
-| ![image](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/blob/master/screenshot/%E5%BE%AE%E4%BF%A1160.jpg) | ![image](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/blob/master/screenshot/%E6%94%AF%E4%BB%98%E5%AE%9D160.jpg) |
+| ![image](https://gitee.com/xiaoMGit/Y7000Series_Hackintosh_Fix/raw/master/Screenshot/%E5%BE%AE%E4%BF%A1160.jpg) | ![image](https://gitee.com/xiaoMGit/Y7000Series_Hackintosh_Fix/raw/master/Screenshot/%E6%94%AF%E4%BB%98%E5%AE%9D160.jpg) |
 
 
