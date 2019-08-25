@@ -45,6 +45,11 @@
 ## 不能正常使用的功能
 - HDMI ，因为HDMI 端口连接到已禁用的Nvidia卡。
 
+## 优化命令
+```
+sudo sh -c "$(curl -fsSL https://gitee.com/xiaoMGit/Y7000Series_Hackintosh_Fix/raw/master/Script/Optimize.sh)"
+```
+
 ## 关于捐赠
 
 如果您认可我的工作，可以通过捐赠支持我后续的更新
