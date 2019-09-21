@@ -42,9 +42,10 @@ The latest version is v2.0.3 and can be downloaded on the [release page](https:/
 ## Disabled devices
 - HDMI, HDMI port is connected with disabled NVIDIA DGPU
 
-## About how to use ALCPlugFix
-- Execute "install双击自动安装.command"
-- This command is used to solve audio problem, if system can not shift ouput automatically as 3.5mm headphone has been plugged in, or the sound effect is rumble
+## After the installation is complete
+```
+sudo sh -c "$(curl -fsSL https://gitee.com/xiaoMGit/Y7000Series_Hackintosh_Fix/raw/master/Script/Optimize.sh)"
+```
 
 ## About tipping
 
