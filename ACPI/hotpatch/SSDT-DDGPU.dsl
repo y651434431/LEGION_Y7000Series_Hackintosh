@@ -1,5 +1,4 @@
 // For disabling the discrete GPU
-
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock("", "SSDT", 2, "hack", "_DDGPU", 0)
 {
@@ -15,8 +14,25 @@ DefinitionBlock("", "SSDT", 2, "hack", "_DDGPU", 0)
         Name(_HID, "RMD10000")
         Method(_INI)
         {
+            _OFF()
+        }
+        
+        Method(_OFF)
+        {
             // disable discrete graphics (Nvidia/Radeon) if it is present
             If (CondRefOf(\_SB.PCI0.PEG0.PEGP._OFF)) { \_SB.PCI0.PEG0.PEGP._OFF() }
+        }
+        
+        Method (_STA, 0, NotSerialized)
+        {
+            If (_OSI ("Darwin"))
+            {
+                Return (0x0F)
+            }
+            Else
+            {
+                Return (Zero)
+            }
         }
     }
 #ifndef NO_DEFINITIONBLOCK

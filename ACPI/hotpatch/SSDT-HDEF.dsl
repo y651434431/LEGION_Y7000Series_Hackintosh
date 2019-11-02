@@ -7,7 +7,8 @@ DefinitionBlock("", "SSDT", 2, "hack", "_HDEF", 0)
     External(RMCF.AUDL, IntObj)
     External(RMDA, IntObj)
     External(RMCF.DAUD, IntObj)
-    External(_SB.PCI0.HDEF, DeviceObj)
+    External (_SB.PCI0.HDEF, DeviceObj)
+
     // Note: If your ACPI set (DSDT+SSDTs) does not define HDEF (or AZAL or HDAS)
     // add this Device definition (by uncommenting it)
     //
@@ -16,9 +17,10 @@ DefinitionBlock("", "SSDT", 2, "hack", "_HDEF", 0)
     //    Name(_ADR, 0x001b0000)
     //    Name(_PRW, Package() { 0x0d, 0x05 }) // may need tweaking (or not needed)
     //}
-    Scope(_SB.PCI0.HDEF)
-	{
+
     // inject properties for audio
+    Scope (_SB.PCI0.HDEF)
+    {
     Method(_DSM, 4)
     {
         If (CondRefOf(\RMCF.AUDL)) { If (Ones == \RMCF.AUDL) { Return(0) } }

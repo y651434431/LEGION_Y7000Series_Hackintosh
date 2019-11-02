@@ -7,7 +7,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLFCFL", 0)
 #endif
     External(_SB.PCI0.IGPU, DeviceObj)
     // For backlight control
-    Scope(_SB.PCI0.IGPU)
+    Scope(_SB)
 	{
         Device(PNLF)
         {
@@ -23,7 +23,18 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLFCFL", 0)
             // 19: CoffeeLake 0xffff
             // 99: Other (requires custom AppleBacklightInjector.kext/AppleBackightFixup.kext)
             Name(_UID, 19)
-            Name(_STA, 0x0B)
+            
+            Method (_STA, 0, NotSerialized)
+            {
+                If (_OSI ("Darwin"))
+                {
+                    Return (0x0B)
+                }
+                Else
+                {
+                    Return (Zero)
+                }
+            }
         }
     }
 #ifndef NO_DEFINITIONBLOCK

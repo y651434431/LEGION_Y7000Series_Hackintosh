@@ -1,4 +1,3 @@
-
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock("", "SSDT", 2, "hack", "USBX", 0)
 {

@@ -5,6 +5,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "I2C-ELAN", 0x00000000)
     External (_SB_.PCI0.I2C1, DeviceObj)
     External (_SB_.PCI0.GPI0, DeviceObj)
     External (_SB_.PCI0.GPI0.XSTA, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.I2C1.TPD0.XCRS, MethodObj)
     External (_SB_.PCI0.I2C1.TPD0, DeviceObj)
     External (_SB_.PCI0.I2C1.TPD0.SBFB, FieldUnitObj)
     External (FMD1, IntObj)
@@ -45,16 +46,24 @@ DefinitionBlock ("", "SSDT", 2, "hack", "I2C-ELAN", 0x00000000)
     {
         Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
         {
-            Name (XBFG, ResourceTemplate ()
+            
+            If (_OSI ("Darwin"))
             {
+                Name (XBFG, ResourceTemplate ()
+                {
                 GpioInt (Level, ActiveLow, ExclusiveAndWake, PullDefault, 0x0000,
                     "\\_SB.PCI0.GPI0", 0x00, ResourceConsumer, ,
                     )
                     {   // Pin list
                         0x003B
                     }
-            })
-            Return (ConcatenateResTemplate (SBFB, XBFG))
+                })
+                Return (ConcatenateResTemplate (SBFB, XBFG))
+            }
+            Else
+            {
+                Return (\_SB.PCI0.I2C1.TPD0.XCRS ())
+            }
         }
     }
 
