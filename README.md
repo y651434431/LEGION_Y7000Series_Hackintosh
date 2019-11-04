@@ -1,6 +1,6 @@
 ## 概述
 
-疑问解答可以提 [issues](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/issues) 给我或者加入我的QQ群：1014806625
+疑问解答可以提 [issues](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/issues) 给我或者加入我的QQ群：1014806625（旧的群组因为开车太多被封了，惋惜！！！新群长期潜水会被移出群组）
 
 [中文版](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/blob/master/README.md)|[English](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/blob/master/README-en.md)
 
