@@ -10,11 +10,11 @@
 
 ## 发布
 
-最后发布的版本是 v2.0.3，前往 [release page](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/releases) 下载即可。
+最后发布的版本是 v3.0.0，前往 [release page](https://github.com/xiaoMGitHub/Lenovo_Y7000-Y530_Hackintosh/releases) 下载即可。
 
 ## 你需要什么
 - Lenovo Legion Y7000系列笔记本
-- 下载好的Mojave镜像，本人用的是Mojave 10.14.6 的镜像
+- 下载好的Mojave镜像，本人用的是Mojave 10.15.1 的镜像
 - 8GB U盘
 - 博通BCM94352z 无线网卡
 
