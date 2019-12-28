@@ -16,6 +16,7 @@
 - Lenovo Legion Y7000系列笔记本
 - 下载好的Mojave镜像，本人用的是Catalna 10.15.2 的镜像
 - 16GB U盘
+- 8代处理安装10.15.x需要设置BIOS高级模式：[传送门](https://github.com/xiaoMGitHub/LEGION_Y7000Series_Hackintosh_Clover/blob/master/BIOS%E8%AE%BE%E7%BD%AE%E8%AF%B4%E6%98%8E.md)
 
 ## BIOS确保设置
 - 启用UEFI启动。
