@@ -1,3 +1,5 @@
+![image](https://github.com/xiaoMGitHub/LEGION_Y7000Series_Hackintosh/blob/master/Picture/10.15.x.png)
+
 ## 概述
 
 疑问解答可以提 [issues](https://github.com/xiaoMGitHub/LEGION_Y7000Series_Hackintosh/issues) 给我或者加入我的QQ群：1014806625（提供包括但不限于视频安装教程、疑难杂症解答等）
